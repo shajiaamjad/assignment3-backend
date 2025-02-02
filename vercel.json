@@ -2,19 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "./server.js",
+      "src": "server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/$",
-      "status": 301,
-      "dest": "/products" 
+      "src": "/products/getproducts",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/cart/(.*)",
+      "dest": "/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/server.js"
     }
   ]
 }
