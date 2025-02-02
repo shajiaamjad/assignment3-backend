@@ -6,6 +6,7 @@ const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const mongoose = require('mongoose');
+const PORT = process.env.PORT || 5000;
 
 
 const app = express();
@@ -28,4 +29,4 @@ mongoose.connect(process.env.mongo_uri, {
     serverSelectionTimeoutMS: 60000, // 60 seconds
 }).then(() => { console.log('connected') }).catch(error=>console.log(error));
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
